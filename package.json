@@ -1,0 +1,59 @@
+{
+  "name": "decolize",
+  "version": "0.0.0",
+  "private": true,
+  "repository": "git@github.com:kou64yama/decolize.git",
+  "author": "YAMADA Koji <kou64yama@gmail.com>",
+  "engines": {
+    "node": ">=6.10",
+    "npm": ">=3.10"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.10"
+  },
+  "devDependencies": {
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.41",
+    "@types/reflect-metadata": "^0.0.5",
+    "@types/sequelize": "^4.0.52",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.5.2",
+    "chai": "^3.5.0",
+    "cross-env": "^5.0.0",
+    "mocha": "^3.4.1",
+    "nyc": "^10.3.2",
+    "opn-cli": "^3.1.0",
+    "rollup": "^0.43.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-typescript": "^0.8.1",
+    "sequelize": "^4.1.0",
+    "sqlite3": "^3.1.8",
+    "ts-node": "^3.0.4",
+    "tslint": "^5.2.0",
+    "typescript": "^2.3.2"
+  },
+  "peerDependencies": {
+    "sequelize": ">=3"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "node": "current",
+          "modules": false
+        }
+      ]
+    ],
+    "plugins": [
+      "external-helpers"
+    ]
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "npm run test -- --reporter min --watch",
+    "test:cover": "cross-env NODE_ENV=test nyc npm run test",
+    "coverage": "yarn run test:cover && nyc report --reporter=html && opn coverage/index.html",
+    "build": "rollup -c"
+  }
+}
