@@ -20,9 +20,12 @@
     "babel-preset-env": "^1.5.2",
     "chai": "^3.5.0",
     "cross-env": "^5.0.0",
+    "editorconfig-tools": "^0.1.1",
+    "lint-staged": "^4.0.0",
     "mocha": "^3.4.1",
     "nyc": "^10.3.2",
     "opn-cli": "^3.1.0",
+    "pre-commit": "^1.2.2",
     "rollup": "^0.43.0",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-typescript": "^0.8.1",
@@ -49,7 +52,19 @@
       "external-helpers"
     ]
   },
+  "lint-staged": {
+    "*.{cmd,html,json,md,sh,txt,xml,yml}": [
+      "editorconfig-tools fix",
+      "git add"
+    ],
+    "*.ts": [
+      "tslint --fix",
+      "git add"
+    ]
+  },
   "scripts": {
+    "lint:staged": "lint-staged",
+    "lint": "yarn run lint:ts",
     "test": "mocha",
     "test:watch": "npm run test -- --reporter min --watch",
     "test:cover": "cross-env NODE_ENV=test nyc npm run test",
