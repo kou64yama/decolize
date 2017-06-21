@@ -63,6 +63,7 @@
     ]
   },
   "scripts": {
+    "lint:ts": "tslint src/**/*.ts tools/**/*.ts",
     "lint:staged": "lint-staged",
     "lint": "yarn run lint:ts",
     "test": "mocha",
