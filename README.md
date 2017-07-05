@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/kou64yama/decolize.svg?branch=master)](https://travis-ci.org/kou64yama/decolize)
 [![license](https://img.shields.io/github/license/kou64yama/decolize.svg)](./LICENSE)
 
-**Note: Declize is under development. It can not be used yet.**
+**Note: Decolize is under development. It can not be used yet.**
 
 Decolize is the decorator-driven O/R mapper for TypeScript (Node.js).
 
