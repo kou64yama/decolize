@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/kou64yama/decolize.svg?branch=master)](https://travis-ci.org/kou64yama/decolize)
 [![codecov](https://codecov.io/gh/kou64yama/decolize/branch/master/graph/badge.svg)](https://codecov.io/gh/kou64yama/decolize)
+[![Coverage Status](https://coveralls.io/repos/github/kou64yama/decolize/badge.svg)](https://coveralls.io/github/kou64yama/decolize)
 [![license](https://img.shields.io/github/license/kou64yama/decolize.svg)](./LICENSE)
 
 **Note: Decolize is under development. It can not be used yet.**
