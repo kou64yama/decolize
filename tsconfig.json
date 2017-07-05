@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": true,
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
