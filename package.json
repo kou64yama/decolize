@@ -78,6 +78,7 @@
     "test:watch": "npm run test -- --reporter min --watch",
     "test:cover": "cross-env NODE_ENV=test nyc npm run test",
     "coverage": "yarn run test:cover && nyc report --reporter=html && opn coverage/index.html",
+    "codecov": "nyc report --reporter=text-lcov >   coverage.lcov && codecov",
     "clean": "rimraf ./*.{js,d.ts} ./{lib,test}/**/*.{js,d.ts}",
     "build": "tsc"
   }
