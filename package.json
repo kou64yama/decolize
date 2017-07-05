@@ -29,6 +29,7 @@
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.5.2",
     "chai": "^3.5.0",
+    "codecov": "^2.2.0",
     "cross-env": "^5.0.0",
     "editorconfig-tools": "^0.1.1",
     "lint-staged": "^4.0.0",
@@ -78,6 +79,7 @@
     "test:watch": "npm run test -- --reporter min --watch",
     "test:cover": "cross-env NODE_ENV=test nyc npm run test",
     "coverage": "yarn run test:cover && nyc report --reporter=html && opn coverage/index.html",
+    "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "clean": "rimraf ./*.{js,d.ts} ./{lib,test}/**/*.{js,d.ts}",
     "build": "tsc"
   }
