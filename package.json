@@ -23,24 +23,19 @@
     "reflect-metadata": "^0.1.10"
   },
   "devDependencies": {
-    "@types/chai": "^3.5.2",
-    "@types/mocha": "^2.2.41",
+    "@types/jest": "^20.0.5",
     "@types/reflect-metadata": "^0.0.5",
     "@types/sequelize": "^4.0.52",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "babel-preset-env": "^1.5.2",
     "chai": "^3.5.0",
     "codecov": "^2.2.0",
-    "cross-env": "^5.0.0",
     "editorconfig-tools": "^0.1.1",
+    "jest": "^20.0.4",
     "lint-staged": "^4.0.0",
-    "mocha": "^3.4.1",
-    "nyc": "^10.3.2",
     "opn-cli": "^3.1.0",
-    "pre-commit": "^1.2.2",
     "rimraf": "^2.6.1",
     "sequelize": "^4.1.0",
     "sqlite3": "^3.1.8",
+    "ts-jest": "^20.0.7",
     "ts-node": "^3.0.4",
     "tslint": "^5.2.0",
     "typescript": "^2.3.2"
@@ -48,18 +43,24 @@
   "peerDependencies": {
     "sequelize": ">=3"
   },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "node": "current",
-          "modules": false
-        }
-      ]
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
     ],
-    "plugins": [
-      "external-helpers"
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.ts?(x)",
+      "**/?(*.)(spec|test).ts?(x)"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
     ]
   },
   "lint-staged": {
@@ -73,15 +74,16 @@
     ]
   },
   "scripts": {
+    "precommit": "lint-staged",
     "lint:ts": "tslint src/**/*.ts tools/**/*.ts",
     "lint:staged": "lint-staged",
     "lint": "yarn run lint:ts",
-    "test": "mocha",
-    "test:watch": "npm run test -- --reporter min --watch",
-    "test:cover": "cross-env NODE_ENV=test nyc npm run test",
-    "coverage": "yarn run test:cover && nyc report --reporter=html && opn coverage/index.html",
-    "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "jest",
+    "test:watch": "yarn run test -- --watch --notify",
+    "test:cover": "yarn run test -- --coverage",
+    "coverage": "yarn run test:cover && opn coverage/lcov-report/index.html",
+    "codecov": "codecov -f coverage/lcov.info",
+    "coveralls": "coveralls",
     "clean": "rimraf ./*.{js,d.ts} ./{lib,test}/**/*.{js,d.ts}",
     "build": "tsc"
   }
