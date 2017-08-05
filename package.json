@@ -19,7 +19,6 @@
     "npm": ">=3.10"
   },
   "dependencies": {
-    "coveralls": "^2.13.1",
     "reflect-metadata": "^0.1.10"
   },
   "devDependencies": {
@@ -83,7 +82,6 @@
     "test:cover": "yarn run test -- --coverage",
     "coverage": "yarn run test:cover && opn coverage/lcov-report/index.html",
     "codecov": "codecov -f coverage/lcov.info",
-    "coveralls": "coveralls",
     "clean": "rimraf ./*.{js,d.ts} ./{lib,test}/**/*.{js,d.ts}",
     "build": "tsc"
   }
