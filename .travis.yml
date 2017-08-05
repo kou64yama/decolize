@@ -7,4 +7,4 @@ script:
   - yarn run lint
   - yarn run test:cover
 after_success:
-  - yarn run codecov
+  - bash <(curl -s https://codecov.io/bash) -e TRAVIS_NODE_VERSION

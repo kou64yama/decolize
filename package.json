@@ -26,7 +26,6 @@
     "@types/reflect-metadata": "^0.0.5",
     "@types/sequelize": "^4.0.52",
     "chai": "^3.5.0",
-    "codecov": "^2.2.0",
     "editorconfig-tools": "^0.1.1",
     "jest": "^20.0.4",
     "lint-staged": "^4.0.0",
@@ -81,7 +80,7 @@
     "test:watch": "yarn run test -- --watch --notify",
     "test:cover": "yarn run test -- --coverage",
     "coverage": "yarn run test:cover && opn coverage/lcov-report/index.html",
-    "codecov": "codecov -f coverage/lcov.info",
+    "codecov": "codecov",
     "clean": "rimraf ./*.{js,d.ts} ./{lib,test}/**/*.{js,d.ts}",
     "build": "tsc"
   }
